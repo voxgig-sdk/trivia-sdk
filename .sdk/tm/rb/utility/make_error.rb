@@ -1,0 +1,44 @@
+# Trivia SDK utility: make_error
+require_relative '../core/operation'
+require_relative '../core/result'
+require_relative '../core/error'
+module TriviaUtilities
+  MakeError = ->(ctx, err) {
+    if ctx.nil?
+      require_relative '../core/context'
+      ctx = TriviaContext.new({}, nil)
+    end
+    op = ctx.op || TriviaOperation.new({})
+    opname = op.name
+    opname = "unknown operation" if opname.empty? || opname == "_"
+
+    result = ctx.result || TriviaResult.new({})
+    result.ok = false
+
+    err = result.err if err.nil?
+    err = ctx.make_error("unknown", "unknown error") if err.nil?
+
+    errmsg = err.is_a?(TriviaError) ? err.msg : err.to_s
+    msg = "TriviaSDK: #{opname}: #{errmsg}"
+    msg = ctx.utility.clean.call(ctx, msg)
+
+    result.err = nil
+    spec = ctx.spec
+
+    if ctx.ctrl.explain
+      ctx.ctrl.explain["err"] = { "message" => msg }
+    end
+
+    sdk_err = TriviaError.new("", msg, ctx)
+    sdk_err.result = ctx.utility.clean.call(ctx, result)
+    sdk_err.spec = ctx.utility.clean.call(ctx, spec)
+    sdk_err.code = err.code if err.is_a?(TriviaError)
+
+    ctx.ctrl.err = sdk_err
+
+    if ctx.ctrl.throw_err == false
+      return result.resdata, nil
+    end
+    return nil, sdk_err
+  }
+end

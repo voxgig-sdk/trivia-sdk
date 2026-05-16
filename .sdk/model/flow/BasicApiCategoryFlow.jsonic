@@ -1,0 +1,22 @@
+# BasicApiCategoryFlow
+
+main: kit: flow: BasicApiCategoryFlow:
+{
+  entity: "api_category",
+  kind: "basic",
+  name: "BasicApiCategoryFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "api_category_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicApiCategoryFlow"
+}

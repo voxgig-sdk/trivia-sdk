@@ -1,0 +1,244 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Trivia API",
+    "description": "The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://opentdb.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://opentdb.com",
+      "description": "Open Trivia Database API Server"
+    }
+  ],
+  "paths": {
+    "/api.php": {
+      "get": {
+        "summary": "Retrieve trivia questions",
+        "description": "Returns a list of trivia questions based on the specified parameters. No API key is required.",
+        "operationId": "getTriviaQuestions",
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "The number of questions to retrieve (1-50)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "The category ID of questions",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "description": "The difficulty level of questions",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "easy",
+                "medium",
+                "hard"
+              ]
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The type of questions",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "multiple",
+                "boolean"
+              ]
+            }
+          },
+          {
+            "name": "encode",
+            "in": "query",
+            "description": "Encoding type for the response",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "url3986",
+                "base64"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with trivia questions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TriviaResponse"
+                },
+                "example": {
+                  "response_code": 0,
+                  "results": [
+                    {
+                      "type": "multiple",
+                      "difficulty": "medium",
+                      "category": "Entertainment: Film",
+                      "question": "Who did the score to the original Blade Runner?",
+                      "correct_answer": "Vangelis",
+                      "incorrect_answers": [
+                        "Kitaro",
+                        "Yanni",
+                        "Enya"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api_category.php": {
+      "get": {
+        "summary": "Retrieve trivia categories",
+        "description": "Returns a list of all available trivia question categories",
+        "operationId": "getTriviaCategories",
+        "responses": {
+          "200": {
+            "description": "Successful response with category list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TriviaResponse": {
+        "type": "object",
+        "properties": {
+          "response_code": {
+            "type": "integer",
+            "description": "Response code indicating the status of the request (0 = Success, 1 = No Results, 2 = Invalid Parameter, 3 = Token Not Found, 4 = Token Empty)",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TriviaQuestion"
+            }
+          }
+        },
+        "required": [
+          "response_code",
+          "results"
+        ]
+      },
+      "TriviaQuestion": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of question",
+            "enum": [
+              "multiple",
+              "boolean"
+            ]
+          },
+          "difficulty": {
+            "type": "string",
+            "description": "The difficulty level of the question",
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "description": "The category of the question"
+          },
+          "question": {
+            "type": "string",
+            "description": "The question text (may contain HTML entities)"
+          },
+          "correct_answer": {
+            "type": "string",
+            "description": "The correct answer to the question"
+          },
+          "incorrect_answers": {
+            "type": "array",
+            "description": "Array of incorrect answers",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "difficulty",
+          "category",
+          "question",
+          "correct_answer",
+          "incorrect_answers"
+        ]
+      },
+      "CategoryResponse": {
+        "type": "object",
+        "properties": {
+          "trivia_categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the category"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the category"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  }
+}

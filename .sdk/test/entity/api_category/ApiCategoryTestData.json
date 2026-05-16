@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "api_category": {
+      "API_CATEGORY00": {
+        "id": "API_CATEGORY00",
+        "name": "s15"
+      },
+      "API_CATEGORY01": {
+        "id": "API_CATEGORY01",
+        "name": "s29"
+      },
+      "API_CATEGORY02": {
+        "id": "API_CATEGORY02",
+        "name": "s3d"
+      }
+    }
+  },
+  "new": {
+    "api_category": {
+      "api_category_ref01": {
+        "name": "s51"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "api": {
+      "API00": {
+        "category": "s3c",
+        "correct_answer": "s3d",
+        "difficulty": "s3e",
+        "incorrect_answer": [],
+        "question": "s40",
+        "type": "s41"
+      },
+      "API01": {
+        "category": "s78",
+        "correct_answer": "s79",
+        "difficulty": "s7a",
+        "incorrect_answer": [],
+        "question": "s7c",
+        "type": "s7d"
+      },
+      "API02": {
+        "category": "sb4",
+        "correct_answer": "sb5",
+        "difficulty": "sb6",
+        "incorrect_answer": [],
+        "question": "sb8",
+        "type": "sb9"
+      }
+    }
+  },
+  "new": {
+    "api": {
+      "api_ref01": {
+        "category": "sf0",
+        "correct_answer": "sf1",
+        "difficulty": "sf2",
+        "incorrect_answer": [],
+        "question": "sf4",
+        "type": "sf5"
+      }
+    }
+  }
+}

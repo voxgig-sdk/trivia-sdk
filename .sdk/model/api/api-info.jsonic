@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://opentdb.com"
+      }
+      description: "The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions."
+      servers: [
+        {
+          description: "Open Trivia Database API Server"
+          url: "https://opentdb.com"
+        }
+      ]
+      title: "Trivia API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
