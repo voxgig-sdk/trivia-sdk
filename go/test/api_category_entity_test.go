@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/trivia-sdk"
-	"github.com/voxgig-sdk/trivia-sdk/core"
+	sdk "github.com/voxgig-sdk/trivia-sdk/go"
+	"github.com/voxgig-sdk/trivia-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/trivia-sdk/go/utility/struct"
 )
 
 func TestApiCategoryEntity(t *testing.T) {

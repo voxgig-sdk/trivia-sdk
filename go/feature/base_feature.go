@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/trivia-sdk/core"
+	"github.com/voxgig-sdk/trivia-sdk/go/core"
 )
 
 type BaseFeature struct {

@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/trivia-sdk/core"
+	"github.com/voxgig-sdk/trivia-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/trivia-sdk/go/utility/struct"
 )
 
 type ApiEntity struct {
