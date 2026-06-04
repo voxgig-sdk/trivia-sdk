@@ -61,14 +61,12 @@ def _api_category_direct_setup(mockres):
     env = runner.env_override({
         "TRIVIA_TEST_API_CATEGORY_ENTID": {},
         "TRIVIA_TEST_LIVE": "FALSE",
-        "TRIVIA_APIKEY": "NONE",
     })
 
     live = env.get("TRIVIA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("TRIVIA_APIKEY"),
         }
         client = TriviaSDK(merged_opts)
         return {

@@ -83,7 +83,6 @@ def api_basic_setup(extra)
     "TRIVIA_TEST_API_ENTID" => idmap,
     "TRIVIA_TEST_LIVE" => "FALSE",
     "TRIVIA_TEST_EXPLAIN" => "FALSE",
-    "TRIVIA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def api_basic_setup(extra)
   if env["TRIVIA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TRIVIA_APIKEY"],
       },
       extra || {},
     ])
