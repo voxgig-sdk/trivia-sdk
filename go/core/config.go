@@ -14,6 +14,9 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://opentdb.com",
+			"auth": map[string]any{
+				"prefix": "Bearer",
+			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -26,96 +29,98 @@ func MakeConfig() map[string]any {
 			"api": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "category",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "correct_answer",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 					map[string]any{
+						"active": true,
 						"name": "difficulty",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 2,
 					},
 					map[string]any{
+						"active": true,
 						"name": "incorrect_answer",
 						"req": true,
 						"type": "`$ARRAY`",
-						"active": true,
 						"index$": 3,
 					},
 					map[string]any{
+						"active": true,
 						"name": "question",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 4,
 					},
 					map[string]any{
+						"active": true,
 						"name": "type",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 5,
 					},
 				},
 				"name": "api",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
 								"args": map[string]any{
 									"query": []any{
 										map[string]any{
+											"active": true,
 											"example": 10,
 											"kind": "query",
 											"name": "amount",
 											"orig": "amount",
 											"reqd": true,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "category",
 											"orig": "category",
 											"reqd": false,
 											"type": "`$INTEGER`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "difficulty",
 											"orig": "difficulty",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "encode",
 											"orig": "encode",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 										map[string]any{
+											"active": true,
 											"kind": "query",
 											"name": "type",
 											"orig": "type",
 											"reqd": false,
 											"type": "`$STRING`",
-											"active": true,
 										},
 									},
 								},
@@ -137,11 +142,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},
@@ -152,42 +155,42 @@ func MakeConfig() map[string]any {
 			"api_category": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"active": true,
 						"name": "id",
 						"req": true,
 						"type": "`$INTEGER`",
-						"active": true,
 						"index$": 0,
 					},
 					map[string]any{
+						"active": true,
 						"name": "name",
 						"req": true,
 						"type": "`$STRING`",
-						"active": true,
 						"index$": 1,
 					},
 				},
 				"name": "api_category",
 				"op": map[string]any{
 					"list": map[string]any{
+						"input": "data",
 						"name": "list",
 						"points": []any{
 							map[string]any{
+								"active": true,
+								"args": map[string]any{},
 								"method": "GET",
 								"orig": "/api_category.php",
 								"parts": []any{
 									"api_category.php",
 								},
+								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"active": true,
-								"args": map[string]any{},
-								"select": map[string]any{},
 								"index$": 0,
 							},
 						},
-						"input": "data",
 						"key$": "list",
 					},
 				},

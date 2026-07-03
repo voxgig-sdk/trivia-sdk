@@ -92,6 +92,7 @@ function api_category_basic_setup(extra)
     ["TRIVIA_TEST_API_CATEGORY_ENTID"] = idmap,
     ["TRIVIA_TEST_LIVE"] = "FALSE",
     ["TRIVIA_TEST_EXPLAIN"] = "FALSE",
+    ["TRIVIA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function api_category_basic_setup(extra)
   if env["TRIVIA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["TRIVIA_APIKEY"],
       },
       extra or {},
     })

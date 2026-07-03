@@ -93,12 +93,14 @@ func api_categoryDirectSetup(mockres any) *api_categoryDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TRIVIA_TEST_API_CATEGORY_ENTID": map[string]any{},
 		"TRIVIA_TEST_LIVE":    "FALSE",
+		"TRIVIA_APIKEY":       "NONE",
 	})
 
 	live := env["TRIVIA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["TRIVIA_APIKEY"],
 		}
 		client := sdk.NewTriviaSDK(mergedOpts)
 

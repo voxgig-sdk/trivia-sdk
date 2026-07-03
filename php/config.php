@@ -20,6 +20,9 @@ class TriviaConfig
             ],
             "options" => [
                 "base" => "https://opentdb.com",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -32,96 +35,98 @@ class TriviaConfig
         'api' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'category',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'correct_answer',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
             [
+              'active' => true,
               'name' => 'difficulty',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 2,
             ],
             [
+              'active' => true,
               'name' => 'incorrect_answer',
               'req' => true,
               'type' => '`$ARRAY`',
-              'active' => true,
               'index$' => 3,
             ],
             [
+              'active' => true,
               'name' => 'question',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 4,
             ],
             [
+              'active' => true,
               'name' => 'type',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 5,
             ],
           ],
           'name' => 'api',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
                   'args' => [
                     'query' => [
                       [
+                        'active' => true,
                         'example' => 10,
                         'kind' => 'query',
                         'name' => 'amount',
                         'orig' => 'amount',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'category',
                         'orig' => 'category',
                         'reqd' => false,
                         'type' => '`$INTEGER`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'difficulty',
                         'orig' => 'difficulty',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'encode',
                         'orig' => 'encode',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                       [
+                        'active' => true,
                         'kind' => 'query',
                         'name' => 'type',
                         'orig' => 'type',
                         'reqd' => false,
                         'type' => '`$STRING`',
-                        'active' => true,
                       ],
                     ],
                   ],
@@ -143,11 +148,9 @@ class TriviaConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
           ],
@@ -158,42 +161,42 @@ class TriviaConfig
         'api_category' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'id',
               'req' => true,
               'type' => '`$INTEGER`',
-              'active' => true,
               'index$' => 0,
             ],
             [
+              'active' => true,
               'name' => 'name',
               'req' => true,
               'type' => '`$STRING`',
-              'active' => true,
               'index$' => 1,
             ],
           ],
           'name' => 'api_category',
           'op' => [
             'list' => [
+              'input' => 'data',
               'name' => 'list',
               'points' => [
                 [
+                  'active' => true,
+                  'args' => [],
                   'method' => 'GET',
                   'orig' => '/api_category.php',
                   'parts' => [
                     'api_category.php',
                   ],
+                  'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
-                  'args' => [],
-                  'select' => [],
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'list',
             ],
           ],

@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://opentdb.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -27,96 +30,98 @@ def make_config():
       "api": {
         "fields": [
           {
+            "active": True,
             "name": "category",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "correct_answer",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "difficulty",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 2,
           },
           {
+            "active": True,
             "name": "incorrect_answer",
             "req": True,
             "type": "`$ARRAY`",
-            "active": True,
             "index$": 3,
           },
           {
+            "active": True,
             "name": "question",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 4,
           },
           {
+            "active": True,
             "name": "type",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 5,
           },
         ],
         "name": "api",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
                 "args": {
                   "query": [
                     {
+                      "active": True,
                       "example": 10,
                       "kind": "query",
                       "name": "amount",
                       "orig": "amount",
                       "reqd": True,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "category",
                       "orig": "category",
                       "reqd": False,
                       "type": "`$INTEGER`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "difficulty",
                       "orig": "difficulty",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "encode",
                       "orig": "encode",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                     {
+                      "active": True,
                       "kind": "query",
                       "name": "type",
                       "orig": "type",
                       "reqd": False,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -138,11 +143,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },
@@ -153,42 +156,42 @@ def make_config():
       "api_category": {
         "fields": [
           {
+            "active": True,
             "name": "id",
             "req": True,
             "type": "`$INTEGER`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "name",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
         ],
         "name": "api_category",
         "op": {
           "list": {
+            "input": "data",
             "name": "list",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/api_category.php",
                 "parts": [
                   "api_category.php",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "list",
           },
         },

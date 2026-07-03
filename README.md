@@ -1,22 +1,8 @@
 # Trivia SDK
 
-Fetch free, user-contributed multiple-choice and true/false trivia questions from the Open Trivia Database
+Trivia API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Trivia API
-
-The [Open Trivia Database](https://opentdb.com) is a free, community-curated collection of over 5,000 verified trivia questions maintained by Pixeltail Games LLC. The JSON API at `https://opentdb.com` lets applications pull random questions for quizzes, games, and learning tools without an API key.
-
-What you get from the API:
-
-- Random questions via `GET /api.php` with parameters for `amount` (max 50 per call), `category`, `difficulty` (easy / medium / hard), and `type` (`multiple` or `boolean`).
-- A category lookup endpoint that returns the full list of available category IDs (General Knowledge, Science, Geography, History, Sports, Film, Music, Video Games, Anime, Mythology, and more).
-- Per-category and global question-count helpers.
-- Optional session tokens that remember which questions you have already received so the same question is not returned twice; tokens expire after 6 hours of inactivity and can be reset.
-- Selectable response encodings: default HTML entities, legacy URL encoding, RFC 3986, or Base64.
-
-Operational notes: no authentication is required, CORS is enabled, and the service enforces a 5-second cooldown per IP (response code 5 indicates rate limiting). Other documented response codes include 0 (success), 1 (no results), 2 (invalid parameter), 3 (token not found), and 4 (token exhausted).
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install trivia-sdk
 luarocks install trivia-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { TriviaSDK } from 'trivia'
 
-const client = new TriviaSDK({})
+const client = new TriviaSDK({
+  apikey: process.env.TRIVIA_APIKEY,
+})
 
 // List all apis
 const apis = await client.Api().list()
+console.log(apis.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Api** | Core question-retrieval and helper endpoints, including `GET /api.php` for random questions and the global question-count helper. | `/api.php` |
-| **ApiCategory** | Category metadata: `GET /api_category.php` returns the list of available categories and their IDs, and `GET /api_count.php` returns the question count for a given category. | `/api_category.php` |
+| **Api** |  | `/api.php` |
+| **ApiCategory** |  | `/api_category.php` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from trivia_sdk import TriviaSDK
 
-client = TriviaSDK({})
+client = TriviaSDK({
+    "apikey": os.environ.get("TRIVIA_APIKEY"),
+})
 
 # List all apis
-apis, err = client.Api(None).list(None, None)
+apis, err = client.Api().list()
+print(apis)
 ```
 
 ### PHP
@@ -127,10 +119,13 @@ apis, err = client.Api(None).list(None, None)
 <?php
 require_once 'trivia_sdk.php';
 
-$client = new TriviaSDK([]);
+$client = new TriviaSDK([
+    "apikey" => getenv("TRIVIA_APIKEY"),
+]);
 
 // List all apis
-[$apis, $err] = $client->Api(null)->list(null, null);
+[$apis, $err] = $client->Api()->list();
+print_r($apis);
 ```
 
 ### Golang
@@ -138,10 +133,13 @@ $client = new TriviaSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/trivia-sdk/go"
 
-client := sdk.NewTriviaSDK(map[string]any{})
+client := sdk.NewTriviaSDK(map[string]any{
+    "apikey": os.Getenv("TRIVIA_APIKEY"),
+})
 
 // List all apis
 apis, err := client.Api(nil).List(nil, nil)
+fmt.Println(apis)
 ```
 
 ### Ruby
@@ -149,10 +147,13 @@ apis, err := client.Api(nil).List(nil, nil)
 ```ruby
 require_relative "Trivia_sdk"
 
-client = TriviaSDK.new({})
+client = TriviaSDK.new({
+  "apikey" => ENV["TRIVIA_APIKEY"],
+})
 
 # List all apis
-apis, err = client.Api(nil).list(nil, nil)
+apis, err = client.Api().list
+puts apis
 ```
 
 ### Lua
@@ -160,10 +161,13 @@ apis, err = client.Api(nil).list(nil, nil)
 ```lua
 local sdk = require("trivia_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("TRIVIA_APIKEY"),
+})
 
 -- List all apis
-local apis, err = client:Api(nil):list(nil, nil)
+local apis, err = client:Api():list()
+print(apis)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +186,21 @@ const result = await client.Api().load({ id: 'test01' })
 ### Python
 
 ```python
-client = TriviaSDK.test(None, None)
-result, err = client.Api(None).load(
-    {"id": "test01"}, None
-)
+client = TriviaSDK.test()
+result, err = client.Api().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = TriviaSDK::test(null, null);
-[$result, $err] = $client->Api(null)->load(
-    ["id" => "test01"], null
-);
+$client = TriviaSDK::test();
+[$result, $err] = $client->Api()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Api(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +209,15 @@ result, err := client.Api(nil).Load(
 ### Ruby
 
 ```ruby
-client = TriviaSDK.test(nil, nil)
-result, err = client.Api(nil).load(
-  { "id" => "test01" }, nil
-)
+client = TriviaSDK.test
+result, err = client.Api().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Api(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Api():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,16 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Trivia API
-
-- Upstream: [https://opentdb.com](https://opentdb.com)
-- API docs: [https://opentdb.com/api_config.php](https://opentdb.com/api_config.php)
-
-- Trivia content is published by Pixeltail Games LLC under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-- You must credit the Open Trivia Database when redistributing questions.
-- Derivative works (e.g. modified question sets) must be shared under the same licence.
-- The API itself requires no key, but the licence terms apply to the question data you retrieve.
 
 ---
 

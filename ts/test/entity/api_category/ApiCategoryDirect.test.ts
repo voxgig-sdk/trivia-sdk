@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'TRIVIA_TEST_API_CATEGORY_ENTID': {},
     'TRIVIA_TEST_LIVE': 'FALSE',
+    'TRIVIA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.TRIVIA_TEST_LIVE
 
   if (live) {
     const client = new TriviaSDK({
+      apikey: env.TRIVIA_APIKEY,
     })
 
     let idmap: any = env['TRIVIA_TEST_API_CATEGORY_ENTID']
