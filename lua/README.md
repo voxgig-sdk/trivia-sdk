@@ -10,7 +10,7 @@ The Lua SDK for the Trivia API — an entity-oriented client using Lua conventio
 
 ## Install
 ```bash
-luarocks install trivia-sdk
+luarocks install voxgig-sdk-trivia
 ```
 
 If the module is not yet published, add the source directory to

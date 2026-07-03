@@ -10,7 +10,7 @@ The PHP SDK for the Trivia API — an entity-oriented client using PHP conventio
 
 ## Install
 ```bash
-composer require voxgig/trivia-sdk
+composer require voxgig-sdk/trivia
 ```
 
 

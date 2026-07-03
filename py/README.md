@@ -10,7 +10,7 @@ The Python SDK for the Trivia API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install trivia-sdk
+pip install voxgig-sdk-trivia
 ```
 
 Or install from source:

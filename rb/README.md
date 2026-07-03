@@ -10,13 +10,13 @@ The Ruby SDK for the Trivia API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install trivia-sdk
+gem install voxgig-sdk-trivia
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "trivia-sdk"
+gem "voxgig-sdk-trivia"
 ```
 
 Then run:

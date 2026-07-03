@@ -10,7 +10,7 @@ The TypeScript SDK for the Trivia API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install trivia
+npm install @voxgig-sdk/trivia
 ```
 ## Tutorial: your first API call
 
