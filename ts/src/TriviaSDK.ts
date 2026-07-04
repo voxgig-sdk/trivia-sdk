@@ -205,28 +205,14 @@ class TriviaSDK {
 
 
 
-  _api?: ApiEntity
-
-  // Idiomatic facade: `client.api.list()` / `client.api.load({ id })`.
-  get api(): ApiEntity {
-    return (this._api ??= new ApiEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.api` instead. */
+  // Entity access: `client.Api().list()` / `client.Api().load({ id })`.
   Api(data?: any) {
     const self = this
     return new ApiEntity(self,data)
   }
 
 
-  _api_category?: ApiCategoryEntity
-
-  // Idiomatic facade: `client.api_category.list()` / `client.api_category.load({ id })`.
-  get api_category(): ApiCategoryEntity {
-    return (this._api_category ??= new ApiCategoryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.api_category` instead. */
+  // Entity access: `client.ApiCategory().list()` / `client.ApiCategory().load({ id })`.
   ApiCategory(data?: any) {
     const self = this
     return new ApiCategoryEntity(self,data)

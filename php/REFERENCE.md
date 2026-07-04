@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## ApiEntity
 
 ```php
-$api = $client->api();
+$api = $client->Api();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $api = $client->api();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->api()->list([]);
+$results = $client->Api()->list([]);
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## ApiCategoryEntity
 
 ```php
-$api_category = $client->api_category();
+$api_category = $client->ApiCategory();
 ```
 
 ### Fields
@@ -163,7 +163,7 @@ $api_category = $client->api_category();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->api_category()->list([]);
+$results = $client->ApiCategory()->list([]);
 ```
 
 ### Common Methods

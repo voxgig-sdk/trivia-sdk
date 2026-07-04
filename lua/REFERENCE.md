@@ -87,7 +87,7 @@ same parameters as `direct()`.
 ## ApiEntity
 
 ```lua
-local api = client:api(nil)
+local api = client:Api(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local api = client:api(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:api():list()
+local results, err = client:Api():list()
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## ApiCategoryEntity
 
 ```lua
-local api_category = client:api_category(nil)
+local api_category = client:ApiCategory(nil)
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ local api_category = client:api_category(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:api_category():list()
+local results, err = client:ApiCategory():list()
 ```
 
 ### Common Methods

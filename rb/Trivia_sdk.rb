@@ -208,26 +208,14 @@ class TriviaSDK
   end
 
 
-  # Idiomatic facade: client.api.list / client.api.load({ "id" => ... })
-  def api
-    require_relative 'entity/api_entity'
-    @api ||= ApiEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.api instead.
+  # Canonical facade: client.Api.list / client.Api.load({ "id" => ... })
   def Api(data = nil)
     require_relative 'entity/api_entity'
     ApiEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.api_category.list / client.api_category.load({ "id" => ... })
-  def api_category
-    require_relative 'entity/api_category_entity'
-    @api_category ||= ApiCategoryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.api_category instead.
+  # Canonical facade: client.ApiCategory.list / client.ApiCategory.load({ "id" => ... })
   def ApiCategory(data = nil)
     require_relative 'entity/api_category_entity'
     ApiCategoryEntity.new(self, data)

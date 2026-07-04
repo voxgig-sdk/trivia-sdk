@@ -220,41 +220,21 @@ class TriviaSDK:
         }
 
 
-    @property
-    def api(self):
-        """Idiomatic facade: client.api.list() / client.api.load({"id": ...})."""
-        from entity.api_entity import ApiEntity
-        cached = getattr(self, "_api", None)
-        if cached is None:
-            cached = ApiEntity(self, None)
-            self._api = cached
-        return cached
-
-    def Api(self, data=None):
-        # Deprecated: use client.api instead.
+    def Api(self, data=None) -> "ApiEntity":
+        """Entity factory: client.Api().list({}) / client.Api().load({"id": ...})."""
         from entity.api_entity import ApiEntity
         return ApiEntity(self, data)
 
 
-    @property
-    def api_category(self):
-        """Idiomatic facade: client.api_category.list() / client.api_category.load({"id": ...})."""
-        from entity.api_category_entity import ApiCategoryEntity
-        cached = getattr(self, "_api_category", None)
-        if cached is None:
-            cached = ApiCategoryEntity(self, None)
-            self._api_category = cached
-        return cached
-
-    def ApiCategory(self, data=None):
-        # Deprecated: use client.api_category instead.
+    def ApiCategory(self, data=None) -> "ApiCategoryEntity":
+        """Entity factory: client.ApiCategory().list({}) / client.ApiCategory().load({"id": ...})."""
         from entity.api_category_entity import ApiCategoryEntity
         return ApiCategoryEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "TriviaSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class TriviaSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.api_entity import ApiEntity
+    from entity.api_category_entity import ApiCategoryEntity

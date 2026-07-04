@@ -29,18 +29,16 @@ require_once 'trivia_sdk.php';
 $client = new TriviaSDK();
 ```
 
-### 2. List apis
+### 2. List api records
 
 ```php
 try {
-    $result = $client->api()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Api records — iterate directly.
+    $apis = $client->Api()->list();
+    foreach ($apis as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = TriviaSDK::test();
+$client = TriviaSDK::test([
+    "entity" => ["api" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->api()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$api = $client->Api()->load(["id" => "test01"]);
+print_r($api);
 ```
 
 ### Use a custom fetch function
@@ -171,8 +173,8 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `Api` | `($data): ApiEntity` | Create a Api entity instance. |
-| `ApiCategory` | `($data): ApiCategoryEntity` | Create a ApiCategory entity instance. |
+| `Api` | `($data): ApiEntity` | Create an Api entity instance. |
+| `ApiCategory` | `($data): ApiCategoryEntity` | Create an ApiCategory entity instance. |
 
 ### Entity interface
 
@@ -245,7 +247,7 @@ API path: `/api_category.php`
 
 ### Api
 
-Create an instance: `const api = client.api`
+Create an instance: `$api = $client->Api();`
 
 #### Operations
 
@@ -266,14 +268,15 @@ Create an instance: `const api = client.api`
 
 #### Example: List
 
-```ts
-const apis = await client.api.list()
+```php
+// list() returns an array of Api records (throws on error).
+$apis = $client->Api()->list();
 ```
 
 
 ### ApiCategory
 
-Create an instance: `const api_category = client.api_category`
+Create an instance: `$api_category = $client->ApiCategory();`
 
 #### Operations
 
@@ -290,8 +293,9 @@ Create an instance: `const api_category = client.api_category`
 
 #### Example: List
 
-```ts
-const api_categorys = await client.api_category.list()
+```php
+// list() returns an array of ApiCategory records (throws on error).
+$api_categorys = $client->ApiCategory()->list();
 ```
 
 
@@ -366,7 +370,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$api = $client->api();
+$api = $client->Api();
 $api->load(["id" => "example_id"]);
 
 // $api->dataGet() now returns the loaded api data

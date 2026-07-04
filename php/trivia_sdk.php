@@ -233,10 +233,10 @@ class TriviaSDK
 
     private $_api = null;
 
-    // Idiomatic facade: $client->api()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Api() (PHP method
-    // names are case-insensitive).
-    public function api($data = null)
+    // Canonical facade: $client->Api()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->api()
+    // resolves here too.
+    public function Api($data = null)
     {
         require_once __DIR__ . '/entity/api_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class TriviaSDK
 
     private $_api_category = null;
 
-    // Idiomatic facade: $client->api_category()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ApiCategory() (PHP method
-    // names are case-insensitive).
-    public function api_category($data = null)
+    // Canonical facade: $client->ApiCategory()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->api_category()
+    // resolves here too.
+    public function ApiCategory($data = null)
     {
         require_once __DIR__ . '/entity/api_category_entity.php';
         if ($data === null) {

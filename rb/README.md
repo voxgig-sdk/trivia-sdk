@@ -28,16 +28,14 @@ require_relative "Trivia_sdk"
 client = TriviaSDK.new
 ```
 
-### 2. List apis
+### 2. List api records
 
 ```ruby
 begin
-  result = client.api.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Api records — iterate directly.
+  apis = client.Api.list
+  apis.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = TriviaSDK.test
+client = TriviaSDK.test({
+  "entity" => { "api" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.api.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+api = client.Api.load({ "id" => "test01" })
+puts api
 ```
 
 ### Use a custom fetch function
@@ -167,8 +169,8 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `Api` | `(data) -> ApiEntity` | Create a Api entity instance. |
-| `ApiCategory` | `(data) -> ApiCategoryEntity` | Create a ApiCategory entity instance. |
+| `Api` | `(data) -> ApiEntity` | Create an Api entity instance. |
+| `ApiCategory` | `(data) -> ApiCategoryEntity` | Create an ApiCategory entity instance. |
 
 ### Entity interface
 
@@ -240,7 +242,7 @@ API path: `/api_category.php`
 
 ### Api
 
-Create an instance: `const api = client.api`
+Create an instance: `api = client.Api`
 
 #### Operations
 
@@ -261,14 +263,15 @@ Create an instance: `const api = client.api`
 
 #### Example: List
 
-```ts
-const apis = await client.api.list()
+```ruby
+# list returns an Array of Api records (raises on error).
+apis = client.Api.list
 ```
 
 
 ### ApiCategory
 
-Create an instance: `const api_category = client.api_category`
+Create an instance: `api_category = client.ApiCategory`
 
 #### Operations
 
@@ -285,8 +288,9 @@ Create an instance: `const api_category = client.api_category`
 
 #### Example: List
 
-```ts
-const api_categorys = await client.api_category.list()
+```ruby
+# list returns an Array of ApiCategory records (raises on error).
+api_categorys = client.ApiCategory.list
 ```
 
 
@@ -361,7 +365,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-api = client.api
+api = client.Api
 api.load({ "id" => "example_id" })
 
 # api.data_get now returns the loaded api data

@@ -26,9 +26,11 @@ import { TriviaSDK } from '@voxgig-sdk/trivia'
 
 const client = new TriviaSDK()
 
-// List all apis
-const apis = await client.api.list()
-console.log(apis.data)
+// List all apis (returns Api[])
+const apis = await client.Api().list()
+for (const api of apis) {
+  console.log(api)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,9 +86,10 @@ from trivia_sdk import TriviaSDK
 
 client = TriviaSDK()
 
-# List all apis
-apis = client.api.list()
-print(apis)
+# List all apis (returns a list, raises on error)
+apis = client.Api().list({})
+for api in apis:
+    print(api)
 ```
 
 ### PHP
@@ -97,8 +100,8 @@ require_once 'trivia_sdk.php';
 
 $client = new TriviaSDK();
 
-// List all apis (throws on error)
-$apis = $client->api()->list();
+// List all apis (returns an array; throws on error)
+$apis = $client->Api()->list();
 print_r($apis);
 ```
 
@@ -121,8 +124,8 @@ require_relative "Trivia_sdk"
 
 client = TriviaSDK.new
 
-# List all apis
-apis = client.api.list
+# List all apis (returns an Array; raises on error)
+apis = client.Api.list
 puts apis
 ```
 
@@ -134,7 +137,7 @@ local sdk = require("trivia_sdk")
 local client = sdk.new()
 
 -- List all apis
-local apis, err = client:api():list()
+local apis, err = client:Api():list()
 print(apis)
 ```
 
@@ -147,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = TriviaSDK.test()
-const result = await client.api.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const api = await client.Api().load({ id: 'test01' })
+// api is a bare Api populated with mock data
+console.log(api)
 ```
 
 ### Python
 
 ```python
 client = TriviaSDK.test()
-result = client.api.load({"id": "test01"})
+api = client.Api().load({"id": "test01"})
+print(api)
 ```
 
 ### PHP
 
 ```php
-$client = TriviaSDK::test();
-$result = $client->api()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = TriviaSDK::test([
+    "entity" => ["api" => ["test01" => ["id" => "test01"]]],
+]);
+$api = $client->Api()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -177,15 +185,18 @@ result, err := client.Api(nil).Load(
 ### Ruby
 
 ```ruby
-client = TriviaSDK.test
-result = client.api.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = TriviaSDK.test({
+  "entity" => { "api" => { "test01" => { "id" => "test01" } } },
+})
+api = client.Api.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:api():load({ id = "test01" })
+local result, err = client:Api():load({ id = "test01" })
 ```
 
 ## How it works
@@ -233,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -31,14 +31,16 @@ from trivia_sdk import TriviaSDK
 client = TriviaSDK()
 ```
 
-### 2. List apis
+### 2. List api records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.api.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    apis = client.Api().list({})
+    for api in apis:
+        print(api)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = TriviaSDK.test()
 
-result = client.api.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+api = client.Api().load({"id": "test01"})
+# api contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,8 +166,8 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Api` | `(data) -> ApiEntity` | Create a Api entity instance. |
-| `ApiCategory` | `(data) -> ApiCategoryEntity` | Create a ApiCategory entity instance. |
+| `Api` | `(data) -> ApiEntity` | Create an Api entity instance. |
+| `ApiCategory` | `(data) -> ApiCategoryEntity` | Create an ApiCategory entity instance. |
 
 ### Entity interface
 
@@ -237,7 +240,7 @@ API path: `/api_category.php`
 
 ### Api
 
-Create an instance: `const api = client.api`
+Create an instance: `api = client.Api()`
 
 #### Operations
 
@@ -258,14 +261,14 @@ Create an instance: `const api = client.api`
 
 #### Example: List
 
-```ts
-const apis = await client.api.list()
+```python
+apis = client.Api().list({})
 ```
 
 
 ### ApiCategory
 
-Create an instance: `const api_category = client.api_category`
+Create an instance: `api_category = client.ApiCategory()`
 
 #### Operations
 
@@ -282,8 +285,8 @@ Create an instance: `const api_category = client.api_category`
 
 #### Example: List
 
-```ts
-const api_categorys = await client.api_category.list()
+```python
+api_categorys = client.ApiCategory().list({})
 ```
 
 
@@ -357,7 +360,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-api = client.api
+api = client.Api()
 api.load({"id": "example_id"})
 
 # api.data_get() now returns the loaded api data

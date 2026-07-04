@@ -121,7 +121,7 @@ Alias for `TriviaSDK.test()`.
 ## ApiEntity
 
 ```ts
-const api = client.api
+const api = client.Api()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const api = client.api
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.api.list()
+const results = await client.Api().list()
 ```
 
 ### Common Methods
@@ -176,7 +176,7 @@ Return a copy of the entity options.
 ## ApiCategoryEntity
 
 ```ts
-const api_category = client.api_category
+const api_category = client.ApiCategory()
 ```
 
 ### Fields
@@ -193,7 +193,7 @@ const api_category = client.api_category
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.api_category.list()
+const results = await client.ApiCategory().list()
 ```
 
 ### Common Methods

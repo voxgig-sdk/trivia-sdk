@@ -4,15 +4,19 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Api:
+class Api(TypedDict):
     category: str
     correct_answer: str
     difficulty: str
@@ -21,24 +25,20 @@ class Api:
     type: str
 
 
-@dataclass
-class ApiListMatch:
-    category: Optional[str] = None
-    correct_answer: Optional[str] = None
-    difficulty: Optional[str] = None
-    incorrect_answer: Optional[list] = None
-    question: Optional[str] = None
-    type: Optional[str] = None
+class ApiListMatch(TypedDict, total=False):
+    category: str
+    correct_answer: str
+    difficulty: str
+    incorrect_answer: list
+    question: str
+    type: str
 
 
-@dataclass
-class ApiCategory:
+class ApiCategory(TypedDict):
     id: int
     name: str
 
 
-@dataclass
-class ApiCategoryListMatch:
-    id: Optional[int] = None
-    name: Optional[str] = None
-
+class ApiCategoryListMatch(TypedDict, total=False):
+    id: int
+    name: str

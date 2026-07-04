@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## ApiEntity
 
 ```python
-api = client.api
+api = client.Api()
 ```
 
 ### Fields
@@ -105,7 +105,9 @@ api = client.api
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.api.list({})
+results = client.Api().list({})
+for api in results:
+    print(api)
 ```
 
 ### Common Methods
@@ -140,7 +142,7 @@ Return the entity name.
 ## ApiCategoryEntity
 
 ```python
-api_category = client.api_category
+api_category = client.ApiCategory()
 ```
 
 ### Fields
@@ -157,7 +159,9 @@ api_category = client.api_category
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.api_category.list({})
+results = client.ApiCategory().list({})
+for api_category in results:
+    print(api_category)
 ```
 
 ### Common Methods
