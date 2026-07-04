@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch ApiCategoryListMatch
+---@param ctrl? table
+---@return ApiCategory[]
+---@return string? err
 function ApiCategoryEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

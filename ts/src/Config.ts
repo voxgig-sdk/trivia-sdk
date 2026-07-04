@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://opentdb.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

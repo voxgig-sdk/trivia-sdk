@@ -50,8 +50,7 @@ class TestApiCategoryEntity:
         api_category_ref01_ent = client.ApiCategory(None)
         api_category_ref01_match = {}
 
-        api_category_ref01_list_result, err = api_category_ref01_ent.list(api_category_ref01_match, None)
-        assert err is None
+        api_category_ref01_list_result = api_category_ref01_ent.list(api_category_ref01_match, None)
         assert isinstance(api_category_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _api_category_basic_setup(extra):
         "TRIVIA_TEST_API_CATEGORY_ENTID": idmap,
         "TRIVIA_TEST_LIVE": "FALSE",
         "TRIVIA_TEST_EXPLAIN": "FALSE",
-        "TRIVIA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _api_category_basic_setup(extra):
     if env.get("TRIVIA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TRIVIA_APIKEY"),
             },
             extra or {},
         ])

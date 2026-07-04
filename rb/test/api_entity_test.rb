@@ -43,8 +43,7 @@ class ApiEntityTest < Minitest::Test
     api_ref01_ent = client.Api(nil)
     api_ref01_match = {}
 
-    api_ref01_list_result, err = api_ref01_ent.list(api_ref01_match, nil)
-    assert_nil err
+    api_ref01_list_result = api_ref01_ent.list(api_ref01_match, nil)
     assert api_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def api_basic_setup(extra)
     "TRIVIA_TEST_API_ENTID" => idmap,
     "TRIVIA_TEST_LIVE" => "FALSE",
     "TRIVIA_TEST_EXPLAIN" => "FALSE",
-    "TRIVIA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def api_basic_setup(extra)
   if env["TRIVIA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["TRIVIA_APIKEY"],
       },
       extra || {},
     ])

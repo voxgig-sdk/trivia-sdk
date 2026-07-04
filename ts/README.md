@@ -9,9 +9,12 @@ The TypeScript SDK for the Trivia API — a type-safe, entity-oriented client wi
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/trivia
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/trivia-sdk/releases](https://github.com/voxgig-sdk/trivia-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TriviaSDK } from 'trivia'
+import { TriviaSDK } from '@voxgig-sdk/trivia'
 
-const client = new TriviaSDK({
-  apikey: process.env.TRIVIA_APIKEY,
-})
+const client = new TriviaSDK()
 ```
 
 ### 2. List apis
 
 ```ts
-const result = await client.Api().list()
+const result = await client.api.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TriviaSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.api.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new TriviaSDK({ apikey: '...' })
+const client = new TriviaSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.api
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new TriviaSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -136,7 +136,6 @@ Create a `.env.local` file at the project root:
 
 ```
 TRIVIA_TEST_LIVE=TRUE
-TRIVIA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new TriviaSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new TriviaSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -285,7 +282,7 @@ API path: `/api_category.php`
 
 ### Api
 
-Create an instance: `const api = client.Api()`
+Create an instance: `const api = client.api`
 
 #### Operations
 
@@ -307,13 +304,13 @@ Create an instance: `const api = client.Api()`
 #### Example: List
 
 ```ts
-const apis = await client.Api().list()
+const apis = await client.api.list()
 ```
 
 
 ### ApiCategory
 
-Create an instance: `const api_category = client.ApiCategory()`
+Create an instance: `const api_category = client.api_category`
 
 #### Operations
 
@@ -331,7 +328,7 @@ Create an instance: `const api_category = client.ApiCategory()`
 #### Example: List
 
 ```ts
-const api_categorys = await client.ApiCategory().list()
+const api_categorys = await client.api_category.list()
 ```
 
 
@@ -392,7 +389,7 @@ trivia/
 Import the SDK from the package root:
 
 ```ts
-import { TriviaSDK } from 'trivia'
+import { TriviaSDK } from '@voxgig-sdk/trivia'
 ```
 
 ### Entity state
@@ -402,11 +399,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const api = client.api
+await api.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// api.data() now returns the loaded api data
+// api.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

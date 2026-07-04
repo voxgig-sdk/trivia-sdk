@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Api,
+  ApiListMatch,
+} from '../TriviaTypes'
 
 // TODO: needs Entity superclass
-class ApiEntity extends TriviaEntityBase {
+class ApiEntity extends TriviaEntityBase<Api> {
 
   constructor(client: TriviaSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class ApiEntity extends TriviaEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: ApiListMatch, ctrl?: Control): Promise<Api[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class ApiEntity extends TriviaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Api[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

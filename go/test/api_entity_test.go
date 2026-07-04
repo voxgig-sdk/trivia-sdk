@@ -119,7 +119,6 @@ func apiBasicSetup(extra map[string]any) *entityTestSetup {
 		"TRIVIA_TEST_API_ENTID": idmap,
 		"TRIVIA_TEST_LIVE":      "FALSE",
 		"TRIVIA_TEST_EXPLAIN":   "FALSE",
-		"TRIVIA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["TRIVIA_TEST_API_ENTID"])
@@ -130,7 +129,6 @@ func apiBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["TRIVIA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["TRIVIA_APIKEY"],
 			},
 			extra,
 		})

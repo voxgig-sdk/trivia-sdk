@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'TRIVIA_TEST_API_ENTID': idmap,
     'TRIVIA_TEST_LIVE': 'FALSE',
     'TRIVIA_TEST_EXPLAIN': 'FALSE',
-    'TRIVIA_APIKEY': 'NONE',
   })
 
   idmap = env['TRIVIA_TEST_API_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new TriviaSDK(merge([
       {
-        apikey: env.TRIVIA_APIKEY,
       },
       extra
     ]))

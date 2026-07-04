@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:api():list() / client:api():load({ id = ... })
+function TriviaSDK:api(data)
+  local EntityMod = require("entity.api_entity")
+  if data == nil then
+    if self._api == nil then
+      self._api = EntityMod.new(self, nil)
+    end
+    return self._api
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:api() instead.
 function TriviaSDK:Api(data)
   local EntityMod = require("entity.api_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:api_category():list() / client:api_category():load({ id = ... })
+function TriviaSDK:api_category(data)
+  local EntityMod = require("entity.api_category_entity")
+  if data == nil then
+    if self._api_category == nil then
+      self._api_category = EntityMod.new(self, nil)
+    end
+    return self._api_category
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:api_category() instead.
 function TriviaSDK:ApiCategory(data)
   local EntityMod = require("entity.api_category_entity")
   return EntityMod.new(self, data)

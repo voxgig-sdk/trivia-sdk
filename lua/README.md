@@ -9,12 +9,9 @@ The Lua SDK for the Trivia API — an entity-oriented client using Lua conventio
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-trivia
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/trivia-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("trivia_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("TRIVIA_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List apis
 
 ```lua
-local result, err = client:Api():list()
+local result, err = client:api():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Trivia():load({ id = "test01" })
+local result, err = client:api():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -127,7 +122,6 @@ Create a `.env.local` file at the project root:
 
 ```
 TRIVIA_TEST_LIVE=TRUE
-TRIVIA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -244,7 +237,7 @@ API path: `/api_category.php`
 
 ### Api
 
-Create an instance: `const api = client.Api()`
+Create an instance: `const api = client.api`
 
 #### Operations
 
@@ -266,13 +259,13 @@ Create an instance: `const api = client.Api()`
 #### Example: List
 
 ```ts
-const apis = await client.Api().list()
+const apis = await client.api.list()
 ```
 
 
 ### ApiCategory
 
-Create an instance: `const api_category = client.ApiCategory()`
+Create an instance: `const api_category = client.api_category`
 
 #### Operations
 
@@ -290,7 +283,7 @@ Create an instance: `const api_category = client.ApiCategory()`
 #### Example: List
 
 ```ts
-const api_categorys = await client.ApiCategory().list()
+const api_categorys = await client.api_category.list()
 ```
 
 
@@ -365,11 +358,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local api = client:api()
+api:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- api:data_get() now returns the loaded api data
+-- api:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

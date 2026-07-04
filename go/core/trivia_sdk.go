@@ -245,11 +245,17 @@ func (sdk *TriviaSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Api returns a Api entity bound to this client.
+// Idiomatic usage: client.Api(nil).List(nil, nil) or
+// client.Api(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TriviaSDK) Api(data map[string]any) TriviaEntity {
 	return NewApiEntityFunc(sdk, data)
 }
 
 
+// ApiCategory returns a ApiCategory entity bound to this client.
+// Idiomatic usage: client.ApiCategory(nil).List(nil, nil) or
+// client.ApiCategory(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TriviaSDK) ApiCategory(data map[string]any) TriviaEntity {
 	return NewApiCategoryEntityFunc(sdk, data)
 }

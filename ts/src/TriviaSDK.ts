@@ -3,6 +3,8 @@
 import { ApiEntity } from './entity/ApiEntity'
 import { ApiCategoryEntity } from './entity/ApiCategoryEntity'
 
+export type * from './TriviaTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class TriviaSDK {
 
 
 
+  _api?: ApiEntity
+
+  // Idiomatic facade: `client.api.list()` / `client.api.load({ id })`.
+  get api(): ApiEntity {
+    return (this._api ??= new ApiEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.api` instead. */
   Api(data?: any) {
     const self = this
     return new ApiEntity(self,data)
   }
 
 
+  _api_category?: ApiCategoryEntity
+
+  // Idiomatic facade: `client.api_category.list()` / `client.api_category.load({ id })`.
+  get api_category(): ApiCategoryEntity {
+    return (this._api_category ??= new ApiCategoryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.api_category` instead. */
   ApiCategory(data?: any) {
     const self = this
     return new ApiCategoryEntity(self,data)
