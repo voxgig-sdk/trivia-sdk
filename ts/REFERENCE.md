@@ -128,12 +128,12 @@ const api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `correct_answer` | ``$STRING`` | Yes |  |
-| `difficulty` | ``$STRING`` | Yes |  |
-| `incorrect_answer` | ``$ARRAY`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `category` | `string` | Yes |  |
+| `correct_answer` | `string` | Yes |  |
+| `difficulty` | `string` | Yes |  |
+| `incorrect_answer` | `any[]` | Yes |  |
+| `question` | `string` | Yes |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
@@ -183,8 +183,8 @@ const api_category = client.ApiCategory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `id` | `number` | Yes |  |
+| `name` | `string` | Yes |  |
 
 ### Operations
 

@@ -23,7 +23,7 @@ class Api
     public string $type;
 }
 
-/** Match filter for Api#list (any subset of Api fields). */
+/** Request payload for Api#list. */
 class ApiListMatch
 {
     public ?string $category = null;
@@ -41,7 +41,7 @@ class ApiCategory
     public string $name;
 }
 
-/** Match filter for ApiCategory#list (any subset of ApiCategory fields). */
+/** Request payload for ApiCategory#list. */
 class ApiCategoryListMatch
 {
     public ?int $id = null;

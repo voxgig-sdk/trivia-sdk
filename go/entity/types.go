@@ -18,8 +18,7 @@ type Api struct {
 	Type string `json:"type"`
 }
 
-// ApiListMatch mirrors the api fields as an all-optional match
-// filter (Go analog of Partial<Api>).
+// ApiListMatch is the typed request payload for Api.ListTyped.
 type ApiListMatch struct {
 	Category *string `json:"category,omitempty"`
 	CorrectAnswer *string `json:"correct_answer,omitempty"`
@@ -35,8 +34,7 @@ type ApiCategory struct {
 	Name string `json:"name"`
 }
 
-// ApiCategoryListMatch mirrors the api_category fields as an all-optional match
-// filter (Go analog of Partial<ApiCategory>).
+// ApiCategoryListMatch is the typed request payload for ApiCategory.ListTyped.
 type ApiCategoryListMatch struct {
 	Id *int `json:"id,omitempty"`
 	Name *string `json:"name,omitempty"`

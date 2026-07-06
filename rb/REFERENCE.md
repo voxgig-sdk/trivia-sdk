@@ -8,7 +8,7 @@ Complete API reference for the Trivia Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'trivia_sdk'
+require_relative 'Trivia_sdk'
 
 client = TriviaSDK.new(options)
 ```
@@ -97,21 +97,21 @@ api = client.Api
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `correct_answer` | ``$STRING`` | Yes |  |
-| `difficulty` | ``$STRING`` | Yes |  |
-| `incorrect_answer` | ``$ARRAY`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `category` | `String` | Yes |  |
+| `correct_answer` | `String` | Yes |  |
+| `difficulty` | `String` | Yes |  |
+| `incorrect_answer` | `Array` | Yes |  |
+| `question` | `String` | Yes |  |
+| `type` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Api.list(nil)
+results = client.Api.list
 ```
 
 ### Common Methods
@@ -154,17 +154,17 @@ api_category = client.ApiCategory
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `id` | `Integer` | Yes |  |
+| `name` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.ApiCategory.list(nil)
+results = client.ApiCategory.list
 ```
 
 ### Common Methods

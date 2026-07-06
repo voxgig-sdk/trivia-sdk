@@ -37,7 +37,7 @@ Api = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Api#list (any subset of Api fields).
+# Request payload for Api#list.
 #
 # @!attribute [rw] category
 #   @return [String, nil]
@@ -79,7 +79,7 @@ ApiCategory = Struct.new(
   keyword_init: true
 )
 
-# Match filter for ApiCategory#list (any subset of ApiCategory fields).
+# Request payload for ApiCategory#list.
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]

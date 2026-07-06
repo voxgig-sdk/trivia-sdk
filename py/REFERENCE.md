@@ -91,21 +91,21 @@ api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$STRING`` | Yes |  |
-| `correct_answer` | ``$STRING`` | Yes |  |
-| `difficulty` | ``$STRING`` | Yes |  |
-| `incorrect_answer` | ``$ARRAY`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
-| `type` | ``$STRING`` | Yes |  |
+| `category` | `str` | Yes |  |
+| `correct_answer` | `str` | Yes |  |
+| `difficulty` | `str` | Yes |  |
+| `incorrect_answer` | `list` | Yes |  |
+| `question` | `str` | Yes |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Api().list({})
+results = client.Api().list()
 for api in results:
     print(api)
 ```
@@ -149,17 +149,17 @@ api_category = client.ApiCategory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | Yes |  |
-| `name` | ``$STRING`` | Yes |  |
+| `id` | `int` | Yes |  |
+| `name` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.ApiCategory().list({})
+results = client.ApiCategory().list()
 for api_category in results:
     print(api_category)
 ```

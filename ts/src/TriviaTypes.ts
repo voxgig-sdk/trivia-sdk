@@ -14,12 +14,22 @@ export interface Api {
   type: string
 }
 
-export type ApiListMatch = Partial<Api>
+export interface ApiListMatch {
+  category?: string
+  correct_answer?: string
+  difficulty?: string
+  incorrect_answer?: any[]
+  question?: string
+  type?: string
+}
 
 export interface ApiCategory {
   id: number
   name: string
 }
 
-export type ApiCategoryListMatch = Partial<ApiCategory>
+export interface ApiCategoryListMatch {
+  id?: number
+  name?: string
+}
 

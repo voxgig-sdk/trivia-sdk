@@ -15,12 +15,20 @@
 ---@field type string
 
 ---@class ApiListMatch
+---@field category? string
+---@field correct_answer? string
+---@field difficulty? string
+---@field incorrect_answer? table
+---@field question? string
+---@field type? string
 
 ---@class ApiCategory
 ---@field id number
 ---@field name string
 
 ---@class ApiCategoryListMatch
+---@field id? number
+---@field name? string
 
 local M = {}
 
