@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 api := client.Api(nil)
+fmt.Println(api.GetName()) // "api"
 ```
 
 ### Fields
@@ -116,6 +117,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Api(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -145,7 +150,8 @@ Return the entity name.
 ## ApiCategoryEntity
 
 ```go
-api_category := client.ApiCategory(nil)
+apiCategory := client.ApiCategory(nil)
+fmt.Println(apiCategory.GetName()) // "api_category"
 ```
 
 ### Fields
@@ -163,6 +169,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.ApiCategory(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

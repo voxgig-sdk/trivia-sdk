@@ -15,9 +15,9 @@ main: {
           url: "https://opentdb.com"
         }
       ]
+      summary: "The Open Trivia Database provides a completely free JSON API for use in programming projects."
       title: "Trivia API"
       version: "1.0.0"
+      website: "https://opentdb.com"
     }
   }
-}
-

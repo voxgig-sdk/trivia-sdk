@@ -322,7 +322,7 @@ fmt.Println(apis) // the array of records
 
 ### ApiCategory
 
-Create an instance: `api_category := client.ApiCategory(nil)`
+Create an instance: `apiCategory := client.ApiCategory(nil)`
 
 #### Operations
 
@@ -340,11 +340,11 @@ Create an instance: `api_category := client.ApiCategory(nil)`
 #### Example: List
 
 ```go
-api_categorys, err := client.ApiCategory(nil).List(nil, nil)
+apiCategorys, err := client.ApiCategory(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(api_categorys) // the array of records
+fmt.Println(apiCategorys) // the array of records
 ```
 
 

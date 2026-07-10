@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -348,14 +345,17 @@
           "url": "https://opentdb.com"
         },
         "description": "The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Open Trivia Database API Server",
             "url": "https://opentdb.com"
           }
         ],
+        "summary": "The Open Trivia Database provides a completely free JSON API for use in programming projects.",
         "title": "Trivia API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://opentdb.com"
       },
       "option": {},
       "target": {
@@ -408,6 +408,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -458,6 +461,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
