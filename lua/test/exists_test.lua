@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Trivia SDK exists test
 
 local sdk = require("trivia_sdk")
 
