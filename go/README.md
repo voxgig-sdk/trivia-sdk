@@ -264,7 +264,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"category"` |  |
 | `"correct_answer"` |  |
 | `"difficulty"` |  |
-| `"incorrect_answer"` |  |
+| `"incorrect_answers"` |  |
 | `"question"` |  |
 | `"type"` |  |
 
@@ -305,7 +305,7 @@ Create an instance: `api := client.Api(nil)`
 | `category` | `string` |  |
 | `correct_answer` | `string` |  |
 | `difficulty` | `string` |  |
-| `incorrect_answer` | `[]any` |  |
+| `incorrect_answers` | `[]any` |  |
 | `question` | `string` |  |
 | `type` | `string` |  |
 

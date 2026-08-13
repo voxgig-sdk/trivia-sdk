@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import TriviaSDK
-from core.error import TriviaError
-from core.result import TriviaResult
-from core.response import TriviaResponse
-from core.spec import TriviaSpec
-from feature.base_feature import TriviaBaseFeature
+from projectname_sdk.core.error import TriviaError
+from projectname_sdk.core.result import TriviaResult
+from projectname_sdk.core.response import TriviaResponse
+from projectname_sdk.core.spec import TriviaSpec
+from projectname_sdk.feature.base_feature import TriviaBaseFeature
 
 
 def _client():

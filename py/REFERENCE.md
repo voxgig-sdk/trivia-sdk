@@ -94,7 +94,7 @@ api = client.Api()
 | `category` | `str` | Yes |  |
 | `correct_answer` | `str` | Yes |  |
 | `difficulty` | `str` | Yes |  |
-| `incorrect_answer` | `list` | Yes |  |
+| `incorrect_answers` | `list` | Yes |  |
 | `question` | `str` | Yes |  |
 | `type` | `str` | Yes |  |
 

@@ -54,7 +54,7 @@ class TriviaConfig
             ],
             [
               'active' => true,
-              'name' => 'incorrect_answer',
+              'name' => 'incorrect_answers',
               'req' => true,
               'type' => '`$ARRAY`',
               'index$' => 3,
@@ -127,6 +127,7 @@ class TriviaConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api.php',
                   'parts' => [
@@ -143,7 +144,7 @@ class TriviaConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.results`',
                   ],
                   'index$' => 0,
                 ],
@@ -181,6 +182,7 @@ class TriviaConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api_category.php',
                   'parts' => [
@@ -189,7 +191,7 @@ class TriviaConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.trivia_categories`',
                   ],
                   'index$' => 0,
                 ],

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import TriviaControl
-from core.error import TriviaError
-from core.result import TriviaResult
-from core.spec import TriviaSpec
+from trivia_sdk.config import make_config
+from trivia_sdk.features import _make_feature
+from trivia_sdk.core.control import TriviaControl
+from trivia_sdk.core.error import TriviaError
+from trivia_sdk.core.result import TriviaResult
+from trivia_sdk.core.spec import TriviaSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -21,7 +21,7 @@ main: kit: entity: api: {
       type: "`$STRING`"
     }
     {
-      name: "incorrect_answer"
+      name: "incorrect_answers"
       req: true
       type: "`$ARRAY`"
     }
@@ -99,7 +99,7 @@ main: kit: entity: api: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.results`"
           }
         }
       ]

@@ -97,7 +97,7 @@ local api = client:Api(nil)
 | `category` | `string` | Yes |  |
 | `correct_answer` | `string` | Yes |  |
 | `difficulty` | `string` | Yes |  |
-| `incorrect_answer` | `table` | Yes |  |
+| `incorrect_answers` | `table` | Yes |  |
 | `question` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
 

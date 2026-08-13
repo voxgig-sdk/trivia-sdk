@@ -48,7 +48,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "incorrect_answer",
+            ["name"] = "incorrect_answers",
             ["req"] = true,
             ["type"] = "`$ARRAY`",
             ["index$"] = 3,
@@ -121,6 +121,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api.php",
                 ["parts"] = {
@@ -137,7 +138,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.results`",
                 },
                 ["index$"] = 0,
               },
@@ -175,6 +176,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api_category.php",
                 ["parts"] = {
@@ -183,7 +185,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.trivia_categories`",
                 },
                 ["index$"] = 0,
               },

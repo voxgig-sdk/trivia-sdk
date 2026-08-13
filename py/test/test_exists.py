@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Trivia SDK exists test
 
 import pytest
 from trivia_sdk import TriviaSDK

@@ -49,7 +49,7 @@ module TriviaConfig
             },
             {
               "active" => true,
-              "name" => "incorrect_answer",
+              "name" => "incorrect_answers",
               "req" => true,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -122,6 +122,7 @@ module TriviaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api.php",
                   "parts" => [
@@ -138,7 +139,7 @@ module TriviaConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.results`",
                   },
                   "index$" => 0,
                 },
@@ -176,6 +177,7 @@ module TriviaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api_category.php",
                   "parts" => [
@@ -184,7 +186,7 @@ module TriviaConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.trivia_categories`",
                   },
                   "index$" => 0,
                 },

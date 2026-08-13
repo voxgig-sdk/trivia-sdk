@@ -63,7 +63,7 @@ describe('ApiEntity', async () => {
     const api_ref01_ent = client.Api()
     const api_ref01_match: any = {}
 
-    const api_ref01_list = await api_ref01_ent.list(api_ref01_match)
+    const api_ref01_list = (await api_ref01_ent.list(api_ref01_match)).map((e: any) => e.data())
 
 
   })

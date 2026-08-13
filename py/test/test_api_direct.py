@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from trivia_sdk.utility.voxgig_struct import voxgig_struct as vs
 from trivia_sdk import TriviaSDK
-from core import helpers
+from trivia_sdk.core import helpers
 from test import runner
 
 

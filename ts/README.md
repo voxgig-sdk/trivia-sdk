@@ -35,7 +35,9 @@ const client = new TriviaSDK()
 
 ### 2. List api records
 
-`list()` resolves to an array of Api objects — iterate it directly:
+`list()` resolves to an array of Api ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const apis = await client.Api().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = TriviaSDK.test()
 
 const api = await client.Api().list()
-// api is a bare entity populated with mock response data
+// api is the entity, populated with mock response data
+// — call api.data() for the record itself
 console.log(api)
 ```
 
@@ -288,7 +291,7 @@ The `prepare()` method returns:
 | `category` |  |
 | `correct_answer` |  |
 | `difficulty` |  |
-| `incorrect_answer` |  |
+| `incorrect_answers` |  |
 | `question` |  |
 | `type` |  |
 
@@ -329,7 +332,7 @@ Create an instance: `const api = client.Api()`
 | `category` | `string` |  |
 | `correct_answer` | `string` |  |
 | `difficulty` | `string` |  |
-| `incorrect_answer` | `any[]` |  |
+| `incorrect_answers` | `any[]` |  |
 | `question` | `string` |  |
 | `type` | `string` |  |
 

@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = TriviaSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = TriviaSDK.test({
+  entity: {
+    api: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const apis = await client.Api().list()
-// apis is an array of bare Api records populated with mock data
+// apis is an array of Api entities, populated with mock data
+// — call apis[0].data() for the record itself
 console.log(apis)
 ```
 
@@ -110,7 +119,7 @@ import { TriviaSDK } from '@voxgig-sdk/trivia'
 
 const client = new TriviaSDK()
 
-// List all apis (returns Api[])
+// List all apis (returns ApiEntity[] — .data() for the record)
 const apis = await client.Api().list()
 for (const api of apis) {
   console.log(api)
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://opentdb.com](https://opentdb.com)
 

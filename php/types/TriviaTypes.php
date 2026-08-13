@@ -18,7 +18,7 @@ class Api
     public string $category;
     public string $correct_answer;
     public string $difficulty;
-    public array $incorrect_answer;
+    public array $incorrect_answers;
     public string $question;
     public string $type;
 }
@@ -29,7 +29,7 @@ class ApiListMatch
     public ?string $category = null;
     public ?string $correct_answer = null;
     public ?string $difficulty = null;
-    public ?array $incorrect_answer = null;
+    public ?array $incorrect_answers = null;
     public ?string $question = null;
     public ?string $type = null;
 }

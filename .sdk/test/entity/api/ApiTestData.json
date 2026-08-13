@@ -5,7 +5,7 @@
         "category": "s3c",
         "correct_answer": "s3d",
         "difficulty": "s3e",
-        "incorrect_answer": [],
+        "incorrect_answers": [],
         "question": "s40",
         "type": "s41"
       },
@@ -13,7 +13,7 @@
         "category": "s78",
         "correct_answer": "s79",
         "difficulty": "s7a",
-        "incorrect_answer": [],
+        "incorrect_answers": [],
         "question": "s7c",
         "type": "s7d"
       },
@@ -21,7 +21,7 @@
         "category": "sb4",
         "correct_answer": "sb5",
         "difficulty": "sb6",
-        "incorrect_answer": [],
+        "incorrect_answers": [],
         "question": "sb8",
         "type": "sb9"
       }
@@ -33,7 +33,7 @@
         "category": "sf0",
         "correct_answer": "sf1",
         "difficulty": "sf2",
-        "incorrect_answer": [],
+        "incorrect_answers": [],
         "question": "sf4",
         "type": "sf5"
       }

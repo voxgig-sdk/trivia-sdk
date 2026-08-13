@@ -10,7 +10,7 @@
 ---@field category string
 ---@field correct_answer string
 ---@field difficulty string
----@field incorrect_answer table
+---@field incorrect_answers table
 ---@field question string
 ---@field type string
 
@@ -18,7 +18,7 @@
 ---@field category? string
 ---@field correct_answer? string
 ---@field difficulty? string
----@field incorrect_answer? table
+---@field incorrect_answers? table
 ---@field question? string
 ---@field type? string
 

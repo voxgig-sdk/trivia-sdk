@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = TriviaSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 api = client.Api.list()
 puts api
 ```
@@ -240,7 +241,7 @@ returns a result `Hash` with these keys:
 | `category` |  |
 | `correct_answer` |  |
 | `difficulty` |  |
-| `incorrect_answer` |  |
+| `incorrect_answers` |  |
 | `question` |  |
 | `type` |  |
 
@@ -281,7 +282,7 @@ Create an instance: `api = client.Api`
 | `category` | `String` |  |
 | `correct_answer` | `String` |  |
 | `difficulty` | `String` |  |
-| `incorrect_answer` | `Array` |  |
+| `incorrect_answers` | `Array` |  |
 | `question` | `String` |  |
 | `type` | `String` |  |
 

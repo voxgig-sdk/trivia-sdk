@@ -219,9 +219,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local api, err = client:Api():load()
+    local api, err = client:Api():list()
     if err then error(err) end
-    -- api is the loaded record
+    -- api is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -235,7 +235,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `category` |  |
 | `correct_answer` |  |
 | `difficulty` |  |
-| `incorrect_answer` |  |
+| `incorrect_answers` |  |
 | `question` |  |
 | `type` |  |
 
@@ -276,7 +276,7 @@ Create an instance: `local api = client:Api(nil)`
 | `category` | `string` |  |
 | `correct_answer` | `string` |  |
 | `difficulty` | `string` |  |
-| `incorrect_answer` | `table` |  |
+| `incorrect_answers` | `table` |  |
 | `question` | `string` |  |
 | `type` | `string` |  |
 

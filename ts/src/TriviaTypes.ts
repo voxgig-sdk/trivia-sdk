@@ -9,7 +9,7 @@ export interface Api {
   category: string
   correct_answer: string
   difficulty: string
-  incorrect_answer: any[]
+  incorrect_answers: any[]
   question: string
   type: string
 }
@@ -18,7 +18,7 @@ export interface ApiListMatch {
   category?: string
   correct_answer?: string
   difficulty?: string
-  incorrect_answer?: any[]
+  incorrect_answers?: any[]
   question?: string
   type?: string
 }

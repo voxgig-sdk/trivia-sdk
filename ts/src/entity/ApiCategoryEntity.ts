@@ -37,7 +37,7 @@ class ApiCategoryEntity extends TriviaEntityBase<ApiCategory> {
 
 
 
-  async list(this: any, reqmatch?: ApiCategoryListMatch, ctrl?: Control): Promise<ApiCategory[]> {
+  async list(this: any, reqmatch?: ApiCategoryListMatch, ctrl?: Control): Promise<ApiCategoryEntity[]> {
 
     const utility = this._utility
 

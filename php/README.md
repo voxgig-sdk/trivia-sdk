@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = TriviaSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $api = $client->Api()->list();
 print_r($api);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -250,7 +251,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `category` |  |
 | `correct_answer` |  |
 | `difficulty` |  |
-| `incorrect_answer` |  |
+| `incorrect_answers` |  |
 | `question` |  |
 | `type` |  |
 
@@ -291,7 +292,7 @@ Create an instance: `$api = $client->Api();`
 | `category` | `string` |  |
 | `correct_answer` | `string` |  |
 | `difficulty` | `string` |  |
-| `incorrect_answer` | `array` |  |
+| `incorrect_answers` | `array` |  |
 | `question` | `string` |  |
 | `type` | `string` |  |
 

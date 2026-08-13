@@ -8,12 +8,14 @@ guide: {
   entity: api: {
     path: "/api.php": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.results`")|top
     }
   }
 
   entity: api_category: {
     path: "/api_category.php": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.trivia_categories`")|top
     }
   }
 

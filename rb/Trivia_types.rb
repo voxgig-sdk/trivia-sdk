@@ -19,7 +19,7 @@
 # @!attribute [rw] difficulty
 #   @return [String]
 #
-# @!attribute [rw] incorrect_answer
+# @!attribute [rw] incorrect_answers
 #   @return [Array]
 #
 # @!attribute [rw] question
@@ -31,7 +31,7 @@ Api = Struct.new(
   :category,
   :correct_answer,
   :difficulty,
-  :incorrect_answer,
+  :incorrect_answers,
   :question,
   :type,
   keyword_init: true
@@ -48,7 +48,7 @@ Api = Struct.new(
 # @!attribute [rw] difficulty
 #   @return [String, nil]
 #
-# @!attribute [rw] incorrect_answer
+# @!attribute [rw] incorrect_answers
 #   @return [Array, nil]
 #
 # @!attribute [rw] question
@@ -60,7 +60,7 @@ ApiListMatch = Struct.new(
   :category,
   :correct_answer,
   :difficulty,
-  :incorrect_answer,
+  :incorrect_answers,
   :question,
   :type,
   keyword_init: true

@@ -100,7 +100,7 @@ api = client.Api
 | `category` | `String` | Yes |  |
 | `correct_answer` | `String` | Yes |  |
 | `difficulty` | `String` | Yes |  |
-| `incorrect_answer` | `Array` | Yes |  |
+| `incorrect_answers` | `Array` | Yes |  |
 | `question` | `String` | Yes |  |
 | `type` | `String` | Yes |  |
 

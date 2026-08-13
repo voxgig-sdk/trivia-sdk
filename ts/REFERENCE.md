@@ -131,7 +131,7 @@ const api = client.Api()
 | `category` | `string` | Yes |  |
 | `correct_answer` | `string` | Yes |  |
 | `difficulty` | `string` | Yes |  |
-| `incorrect_answer` | `any[]` | Yes |  |
+| `incorrect_answers` | `any[]` | Yes |  |
 | `question` | `string` | Yes |  |
 | `type` | `string` | Yes |  |
 
