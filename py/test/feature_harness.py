@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from trivia_sdk.config import make_config
+from trivia_sdk.config import shared_config
 from trivia_sdk.features import _make_feature
 from trivia_sdk.core.control import TriviaControl
 from trivia_sdk.core.error import TriviaError
@@ -24,7 +24,7 @@ from trivia_sdk.core.spec import TriviaSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

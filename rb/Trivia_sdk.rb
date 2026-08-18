@@ -28,7 +28,7 @@ class TriviaSDK
     utility = TriviaUtility.new
     @_utility = utility
 
-    config = TriviaConfig.make_config
+    config = TriviaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

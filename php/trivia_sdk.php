@@ -40,7 +40,7 @@ class TriviaSDK
         $utility = new TriviaUtility();
         $this->_utility = $utility;
 
-        $config = TriviaConfig::make_config();
+        $config = TriviaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
