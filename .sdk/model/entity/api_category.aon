@@ -8,11 +8,13 @@ main: kit: entity: api_category: {
     {
       name: "id"
       req: true
+      short: "The unique identifier for the category"
       type: "`$INTEGER`"
     }
     {
       name: "name"
       req: true
+      short: "The name of the category"
       type: "`$STRING`"
     }
   ]

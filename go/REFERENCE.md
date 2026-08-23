@@ -102,12 +102,12 @@ fmt.Println(api.GetName()) // "api"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | Yes |  |
-| `correct_answer` | `string` | Yes |  |
-| `difficulty` | `string` | Yes |  |
-| `incorrect_answers` | `[]any` | Yes |  |
-| `question` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `category` | `string` | Yes | The category of the question |
+| `correct_answer` | `string` | Yes | The correct answer to the question |
+| `difficulty` | `string` | Yes | The difficulty level of the question |
+| `incorrect_answers` | `[]any` | Yes | Array of incorrect answers |
+| `question` | `string` | Yes | The question text (may contain HTML entities) |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -158,8 +158,8 @@ fmt.Println(apiCategory.GetName()) // "api_category"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `int` | Yes |  |
-| `name` | `string` | Yes |  |
+| `id` | `int` | Yes | The unique identifier for the category |
+| `name` | `string` | Yes | The name of the category |
 
 ### Operations
 

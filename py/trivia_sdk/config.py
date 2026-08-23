@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Trivia",
+            "slug": "trivia",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -52,31 +55,37 @@ def make_config():
           {
             "name": "category",
             "req": True,
+            "short": "The category of the question",
             "type": "`$STRING`",
           },
           {
             "name": "correct_answer",
             "req": True,
+            "short": "The correct answer to the question",
             "type": "`$STRING`",
           },
           {
             "name": "difficulty",
             "req": True,
+            "short": "The difficulty level of the question",
             "type": "`$STRING`",
           },
           {
             "name": "incorrect_answers",
             "req": True,
+            "short": "Array of incorrect answers",
             "type": "`$ARRAY`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The question text (may contain HTML entities)",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "The type of question",
             "type": "`$STRING`",
           },
         ],
@@ -155,11 +164,13 @@ def make_config():
           {
             "name": "id",
             "req": True,
+            "short": "The unique identifier for the category",
             "type": "`$INTEGER`",
           },
           {
             "name": "name",
             "req": True,
+            "short": "The name of the category",
             "type": "`$STRING`",
           },
         ],

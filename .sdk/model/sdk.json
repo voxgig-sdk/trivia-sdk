@@ -36,36 +36,42 @@
               "active": true,
               "name": "category",
               "req": true,
+              "short": "The category of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "correct_answer",
               "req": true,
+              "short": "The correct answer to the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "difficulty",
               "req": true,
+              "short": "The difficulty level of the question",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "incorrect_answers",
               "req": true,
+              "short": "Array of incorrect answers",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The question text (may contain HTML entities)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": true,
+              "short": "The type of question",
               "type": "`$STRING`"
             }
           ],
@@ -159,12 +165,14 @@
               "active": true,
               "name": "id",
               "req": true,
+              "short": "The unique identifier for the category",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "The name of the category",
               "type": "`$STRING`"
             }
           ],

@@ -91,12 +91,12 @@ api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `str` | Yes |  |
-| `correct_answer` | `str` | Yes |  |
-| `difficulty` | `str` | Yes |  |
-| `incorrect_answers` | `list` | Yes |  |
-| `question` | `str` | Yes |  |
-| `type` | `str` | Yes |  |
+| `category` | `str` | Yes | The category of the question |
+| `correct_answer` | `str` | Yes | The correct answer to the question |
+| `difficulty` | `str` | Yes | The difficulty level of the question |
+| `incorrect_answers` | `list` | Yes | Array of incorrect answers |
+| `question` | `str` | Yes | The question text (may contain HTML entities) |
+| `type` | `str` | Yes | The type of question |
 
 ### Operations
 
@@ -149,8 +149,8 @@ api_category = client.ApiCategory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `int` | Yes |  |
-| `name` | `str` | Yes |  |
+| `id` | `int` | Yes | The unique identifier for the category |
+| `name` | `str` | Yes | The name of the category |
 
 ### Operations
 

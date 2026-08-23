@@ -97,12 +97,12 @@ api = client.Api
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `String` | Yes |  |
-| `correct_answer` | `String` | Yes |  |
-| `difficulty` | `String` | Yes |  |
-| `incorrect_answers` | `Array` | Yes |  |
-| `question` | `String` | Yes |  |
-| `type` | `String` | Yes |  |
+| `category` | `String` | Yes | The category of the question |
+| `correct_answer` | `String` | Yes | The correct answer to the question |
+| `difficulty` | `String` | Yes | The difficulty level of the question |
+| `incorrect_answers` | `Array` | Yes | Array of incorrect answers |
+| `question` | `String` | Yes | The question text (may contain HTML entities) |
+| `type` | `String` | Yes | The type of question |
 
 ### Operations
 
@@ -154,8 +154,8 @@ api_category = client.ApiCategory
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `Integer` | Yes |  |
-| `name` | `String` | Yes |  |
+| `id` | `Integer` | Yes | The unique identifier for the category |
+| `name` | `String` | Yes | The name of the category |
 
 ### Operations
 

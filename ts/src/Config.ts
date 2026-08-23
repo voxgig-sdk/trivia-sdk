@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Trivia',
+        slug: "trivia",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -60,31 +71,37 @@ class Config {
         {
           "name": "category",
           "req": true,
+          "short": "The category of the question",
           "type": "`$STRING`"
         },
         {
           "name": "correct_answer",
           "req": true,
+          "short": "The correct answer to the question",
           "type": "`$STRING`"
         },
         {
           "name": "difficulty",
           "req": true,
+          "short": "The difficulty level of the question",
           "type": "`$STRING`"
         },
         {
           "name": "incorrect_answers",
           "req": true,
+          "short": "Array of incorrect answers",
           "type": "`$ARRAY`"
         },
         {
           "name": "question",
           "req": true,
+          "short": "The question text (may contain HTML entities)",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "The type of question",
           "type": "`$STRING`"
         }
       ],
@@ -163,11 +180,13 @@ class Config {
         {
           "name": "id",
           "req": true,
+          "short": "The unique identifier for the category",
           "type": "`$INTEGER`"
         },
         {
           "name": "name",
           "req": true,
+          "short": "The name of the category",
           "type": "`$STRING`"
         }
       ],

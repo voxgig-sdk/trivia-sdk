@@ -238,12 +238,12 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `correct_answer` |  |
-| `difficulty` |  |
-| `incorrect_answers` |  |
-| `question` |  |
-| `type` |  |
+| `category` | The category of the question |
+| `correct_answer` | The correct answer to the question |
+| `difficulty` | The difficulty level of the question |
+| `incorrect_answers` | Array of incorrect answers |
+| `question` | The question text (may contain HTML entities) |
+| `type` | The type of question |
 
 Operations: List.
 
@@ -253,8 +253,8 @@ API path: `/api.php`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `name` |  |
+| `id` | The unique identifier for the category |
+| `name` | The name of the category |
 
 Operations: List.
 
@@ -279,12 +279,12 @@ Create an instance: `api = client.Api`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `String` |  |
-| `correct_answer` | `String` |  |
-| `difficulty` | `String` |  |
-| `incorrect_answers` | `Array` |  |
-| `question` | `String` |  |
-| `type` | `String` |  |
+| `category` | `String` | The category of the question |
+| `correct_answer` | `String` | The correct answer to the question |
+| `difficulty` | `String` | The difficulty level of the question |
+| `incorrect_answers` | `Array` | Array of incorrect answers |
+| `question` | `String` | The question text (may contain HTML entities) |
+| `type` | `String` | The type of question |
 
 #### Example: List
 
@@ -308,8 +308,8 @@ Create an instance: `api_category = client.ApiCategory`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `Integer` |  |
-| `name` | `String` |  |
+| `id` | `Integer` | The unique identifier for the category |
+| `name` | `String` | The name of the category |
 
 #### Example: List
 

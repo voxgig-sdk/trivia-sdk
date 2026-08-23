@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Trivia",
+      slug = "trivia",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -31,31 +34,37 @@ local function make_config()
           {
             ["name"] = "category",
             ["req"] = true,
+            ["short"] = "The category of the question",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "correct_answer",
             ["req"] = true,
+            ["short"] = "The correct answer to the question",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "difficulty",
             ["req"] = true,
+            ["short"] = "The difficulty level of the question",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "incorrect_answers",
             ["req"] = true,
+            ["short"] = "Array of incorrect answers",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "question",
             ["req"] = true,
+            ["short"] = "The question text (may contain HTML entities)",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "type",
             ["req"] = true,
+            ["short"] = "The type of question",
             ["type"] = "`$STRING`",
           },
         },
@@ -134,11 +143,13 @@ local function make_config()
           {
             ["name"] = "id",
             ["req"] = true,
+            ["short"] = "The unique identifier for the category",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "name",
             ["req"] = true,
+            ["short"] = "The name of the category",
             ["type"] = "`$STRING`",
           },
         },

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,12 +288,12 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `correct_answer` |  |
-| `difficulty` |  |
-| `incorrect_answers` |  |
-| `question` |  |
-| `type` |  |
+| `category` | The category of the question |
+| `correct_answer` | The correct answer to the question |
+| `difficulty` | The difficulty level of the question |
+| `incorrect_answers` | Array of incorrect answers |
+| `question` | The question text (may contain HTML entities) |
+| `type` | The type of question |
 
 Operations: list.
 
@@ -303,8 +303,8 @@ API path: `/api.php`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `name` |  |
+| `id` | The unique identifier for the category |
+| `name` | The name of the category |
 
 Operations: list.
 
@@ -329,12 +329,12 @@ Create an instance: `const api = client.Api()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `correct_answer` | `string` |  |
-| `difficulty` | `string` |  |
-| `incorrect_answers` | `any[]` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `category` | `string` | The category of the question |
+| `correct_answer` | `string` | The correct answer to the question |
+| `difficulty` | `string` | The difficulty level of the question |
+| `incorrect_answers` | `any[]` | Array of incorrect answers |
+| `question` | `string` | The question text (may contain HTML entities) |
+| `type` | `string` | The type of question |
 
 #### Example: List
 
@@ -357,8 +357,8 @@ Create an instance: `const api_category = client.ApiCategory()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `number` |  |
-| `name` | `string` |  |
+| `id` | `number` | The unique identifier for the category |
+| `name` | `string` | The name of the category |
 
 #### Example: List
 

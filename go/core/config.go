@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Trivia",
+			"slug": "trivia",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,31 +38,37 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "category",
 						"req": true,
+						"short": "The category of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "correct_answer",
 						"req": true,
+						"short": "The correct answer to the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "difficulty",
 						"req": true,
+						"short": "The difficulty level of the question",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "incorrect_answers",
 						"req": true,
+						"short": "Array of incorrect answers",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The question text (may contain HTML entities)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "The type of question",
 						"type": "`$STRING`",
 					},
 				},
@@ -138,11 +147,13 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "The unique identifier for the category",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "The name of the category",
 						"type": "`$STRING`",
 					},
 				},

@@ -232,12 +232,12 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
-| `correct_answer` |  |
-| `difficulty` |  |
-| `incorrect_answers` |  |
-| `question` |  |
-| `type` |  |
+| `category` | The category of the question |
+| `correct_answer` | The correct answer to the question |
+| `difficulty` | The difficulty level of the question |
+| `incorrect_answers` | Array of incorrect answers |
+| `question` | The question text (may contain HTML entities) |
+| `type` | The type of question |
 
 Operations: List.
 
@@ -247,8 +247,8 @@ API path: `/api.php`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `name` |  |
+| `id` | The unique identifier for the category |
+| `name` | The name of the category |
 
 Operations: List.
 
@@ -273,12 +273,12 @@ Create an instance: `local api = client:Api(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `correct_answer` | `string` |  |
-| `difficulty` | `string` |  |
-| `incorrect_answers` | `table` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `category` | `string` | The category of the question |
+| `correct_answer` | `string` | The correct answer to the question |
+| `difficulty` | `string` | The difficulty level of the question |
+| `incorrect_answers` | `table` | Array of incorrect answers |
+| `question` | `string` | The question text (may contain HTML entities) |
+| `type` | `string` | The type of question |
 
 #### Example: List
 
@@ -301,8 +301,8 @@ Create an instance: `local api_category = client:ApiCategory(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `number` |  |
-| `name` | `string` |  |
+| `id` | `number` | The unique identifier for the category |
+| `name` | `string` | The name of the category |
 
 #### Example: List
 

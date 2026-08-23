@@ -128,12 +128,12 @@ const api = client.Api()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `string` | Yes |  |
-| `correct_answer` | `string` | Yes |  |
-| `difficulty` | `string` | Yes |  |
-| `incorrect_answers` | `any[]` | Yes |  |
-| `question` | `string` | Yes |  |
-| `type` | `string` | Yes |  |
+| `category` | `string` | Yes | The category of the question |
+| `correct_answer` | `string` | Yes | The correct answer to the question |
+| `difficulty` | `string` | Yes | The difficulty level of the question |
+| `incorrect_answers` | `any[]` | Yes | Array of incorrect answers |
+| `question` | `string` | Yes | The question text (may contain HTML entities) |
+| `type` | `string` | Yes | The type of question |
 
 ### Operations
 
@@ -183,8 +183,8 @@ const api_category = client.ApiCategory()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `number` | Yes |  |
-| `name` | `string` | Yes |  |
+| `id` | `number` | Yes | The unique identifier for the category |
+| `name` | `string` | Yes | The name of the category |
 
 ### Operations
 

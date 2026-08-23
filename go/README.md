@@ -6,7 +6,7 @@ The Golang SDK for the Trivia API — an entity-oriented client using standard G
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Api(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -261,12 +261,12 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"category"` |  |
-| `"correct_answer"` |  |
-| `"difficulty"` |  |
-| `"incorrect_answers"` |  |
-| `"question"` |  |
-| `"type"` |  |
+| `"category"` | The category of the question |
+| `"correct_answer"` | The correct answer to the question |
+| `"difficulty"` | The difficulty level of the question |
+| `"incorrect_answers"` | Array of incorrect answers |
+| `"question"` | The question text (may contain HTML entities) |
+| `"type"` | The type of question |
 
 Operations: List.
 
@@ -276,8 +276,8 @@ API path: `/api.php`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"name"` |  |
+| `"id"` | The unique identifier for the category |
+| `"name"` | The name of the category |
 
 Operations: List.
 
@@ -302,12 +302,12 @@ Create an instance: `api := client.Api(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `string` |  |
-| `correct_answer` | `string` |  |
-| `difficulty` | `string` |  |
-| `incorrect_answers` | `[]any` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `category` | `string` | The category of the question |
+| `correct_answer` | `string` | The correct answer to the question |
+| `difficulty` | `string` | The difficulty level of the question |
+| `incorrect_answers` | `[]any` | Array of incorrect answers |
+| `question` | `string` | The question text (may contain HTML entities) |
+| `type` | `string` | The type of question |
 
 #### Example: List
 
@@ -334,8 +334,8 @@ Create an instance: `apiCategory := client.ApiCategory(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `int` |  |
-| `name` | `string` |  |
+| `id` | `int` | The unique identifier for the category |
+| `name` | `string` | The name of the category |
 
 #### Example: List
 
