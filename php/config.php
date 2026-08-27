@@ -42,6 +42,7 @@ class TriviaConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
