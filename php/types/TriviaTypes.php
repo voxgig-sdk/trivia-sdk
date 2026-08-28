@@ -26,11 +26,10 @@ class Api
 /** Request payload for Api#list. */
 class ApiListMatch
 {
-    public ?string $category = null;
-    public ?string $correct_answer = null;
+    public int $amount;
+    public ?int $category = null;
     public ?string $difficulty = null;
-    public ?array $incorrect_answers = null;
-    public ?string $question = null;
+    public ?string $encode = null;
     public ?string $type = null;
 }
 

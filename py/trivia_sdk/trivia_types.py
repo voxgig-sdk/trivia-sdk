@@ -25,12 +25,14 @@ class Api(TypedDict):
     type: str
 
 
-class ApiListMatch(TypedDict, total=False):
-    category: str
-    correct_answer: str
+class ApiListMatchRequired(TypedDict):
+    amount: int
+
+
+class ApiListMatch(ApiListMatchRequired, total=False):
+    category: int
     difficulty: str
-    incorrect_answers: list
-    question: str
+    encode: str
     type: str
 
 

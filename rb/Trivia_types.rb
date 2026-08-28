@@ -39,29 +39,25 @@ Api = Struct.new(
 
 # Request payload for Api#list.
 #
-# @!attribute [rw] category
-#   @return [String, nil]
+# @!attribute [rw] amount
+#   @return [Integer]
 #
-# @!attribute [rw] correct_answer
-#   @return [String, nil]
+# @!attribute [rw] category
+#   @return [Integer, nil]
 #
 # @!attribute [rw] difficulty
 #   @return [String, nil]
 #
-# @!attribute [rw] incorrect_answers
-#   @return [Array, nil]
-#
-# @!attribute [rw] question
+# @!attribute [rw] encode
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
 ApiListMatch = Struct.new(
+  :amount,
   :category,
-  :correct_answer,
   :difficulty,
-  :incorrect_answers,
-  :question,
+  :encode,
   :type,
   keyword_init: true
 )

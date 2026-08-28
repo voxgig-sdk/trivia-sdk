@@ -15,11 +15,10 @@ export interface Api {
 }
 
 export interface ApiListMatch {
-  category?: string
-  correct_answer?: string
+  amount: number
+  category?: number
   difficulty?: string
-  incorrect_answers?: any[]
-  question?: string
+  encode?: string
   type?: string
 }
 

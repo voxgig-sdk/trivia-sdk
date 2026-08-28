@@ -15,11 +15,10 @@
 ---@field type string
 
 ---@class ApiListMatch
----@field category? string
----@field correct_answer? string
+---@field amount number
+---@field category? number
 ---@field difficulty? string
----@field incorrect_answers? table
----@field question? string
+---@field encode? string
 ---@field type? string
 
 ---@class ApiCategory

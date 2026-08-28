@@ -24,11 +24,10 @@ type Api struct {
 
 // ApiListMatch is the typed request payload for Api.ListTyped.
 type ApiListMatch struct {
-	Category *string `json:"category,omitempty"`
-	CorrectAnswer *string `json:"correct_answer,omitempty"`
+	Amount int `json:"amount"`
+	Category *int `json:"category,omitempty"`
 	Difficulty *string `json:"difficulty,omitempty"`
-	IncorrectAnswers *[]any `json:"incorrect_answers,omitempty"`
-	Question *string `json:"question,omitempty"`
+	Encode *string `json:"encode,omitempty"`
 	Type *string `json:"type,omitempty"`
 }
 
