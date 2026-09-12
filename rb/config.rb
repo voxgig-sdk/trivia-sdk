@@ -127,8 +127,10 @@ module TriviaConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api.php",
-                  "parts" => [
-                    "api.php",
+                  "segments" => [
+                    {
+                      "lit" => "api.php",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -143,6 +145,9 @@ module TriviaConfig
                     "req" => "`reqdata`",
                     "res" => "`body.results`",
                   },
+                  "parts" => [
+                    "api.php",
+                  ],
                 },
               ],
             },
@@ -166,6 +171,10 @@ module TriviaConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "api_category",
           "op" => {
             "list" => {
@@ -177,14 +186,19 @@ module TriviaConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api_category.php",
-                  "parts" => [
-                    "api_category.php",
+                  "segments" => [
+                    {
+                      "lit" => "api_category.php",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.trivia_categories`",
                   },
+                  "parts" => [
+                    "api_category.php",
+                  ],
                 },
               ],
             },

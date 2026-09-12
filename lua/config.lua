@@ -115,8 +115,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api.php",
-                ["parts"] = {
-                  "api.php",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api.php",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -130,6 +132,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.results`",
+                },
+                ["parts"] = {
+                  "api.php",
                 },
               },
             },
@@ -154,6 +159,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "api_category",
         ["op"] = {
           ["list"] = {
@@ -165,13 +174,18 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api_category.php",
-                ["parts"] = {
-                  "api_category.php",
+                ["segments"] = {
+                  {
+                    ["lit"] = "api_category.php",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.trivia_categories`",
+                },
+                ["parts"] = {
+                  "api_category.php",
                 },
               },
             },
