@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TriviaSDK } from '@voxgig-sdk/trivia'
+import { TriviaSDK } from '@voxgig-sdk/trivia-sdk'
 
 const client = new TriviaSDK()
 ```
@@ -449,7 +449,7 @@ trivia/
 Import the SDK from the package root:
 
 ```ts
-import { TriviaSDK } from '@voxgig-sdk/trivia'
+import { TriviaSDK } from '@voxgig-sdk/trivia-sdk'
 ```
 
 ### Entity state

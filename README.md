@@ -105,7 +105,7 @@ local results, err = client:Api():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
+| TypeScript | `@voxgig-sdk/trivia-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
 | Python | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
 | PHP | `voxgig-sdk/trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/trivia-sdk/go` | `go get github.com/voxgig-sdk/trivia-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Api():list()
 ### TypeScript
 
 ```ts
-import { TriviaSDK } from '@voxgig-sdk/trivia'
+import { TriviaSDK } from '@voxgig-sdk/trivia-sdk'
 
 const client = new TriviaSDK()
 
