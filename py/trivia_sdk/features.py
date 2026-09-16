@@ -1,12 +1,18 @@
 # Trivia SDK feature factory
 
 from trivia_sdk.feature.base_feature import TriviaBaseFeature
+from trivia_sdk.feature.ratelimit_feature import TriviaRatelimitFeature
+from trivia_sdk.feature.retry_feature import TriviaRetryFeature
 from trivia_sdk.feature.test_feature import TriviaTestFeature
+from trivia_sdk.feature.timeout_feature import TriviaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: TriviaBaseFeature(),
+    "ratelimit": lambda: TriviaRatelimitFeature(),
+    "retry": lambda: TriviaRetryFeature(),
     "test": lambda: TriviaTestFeature(),
+    "timeout": lambda: TriviaTimeoutFeature(),
 }
 
 

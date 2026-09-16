@@ -30,6 +30,12 @@ main: kit: entity: api_category: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /api_category.php"
+            json: "{\"operationId\":\"getTriviaCategories\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"trivia_categories\":{\"items\":{\"properties\":{\"id\":{\"description\":\"The unique identifier for the category\",\"type\":\"integer\"},\"name\":{\"description\":\"The name of the category\",\"type\":\"string\"}},\"required\":[\"id\",\"name\"],\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with category list\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/api_category.php"
           segments: [

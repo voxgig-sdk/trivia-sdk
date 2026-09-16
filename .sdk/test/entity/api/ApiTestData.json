@@ -38,5 +38,176 @@
         "type": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /api.php": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getTriviaQuestions",
+        "parameters": [
+          {
+            "description": "The number of questions to retrieve (1-50)",
+            "in": "query",
+            "name": "amount",
+            "required": true,
+            "schema": {
+              "default": 10,
+              "maximum": 50,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The category ID of questions",
+            "in": "query",
+            "name": "category",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "The difficulty level of questions",
+            "in": "query",
+            "name": "difficulty",
+            "required": false,
+            "schema": {
+              "enum": [
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The type of questions",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "multiple",
+                "boolean"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Encoding type for the response",
+            "in": "query",
+            "name": "encode",
+            "required": false,
+            "schema": {
+              "enum": [
+                "url3986",
+                "base64"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "response_code": 0,
+                  "results": [
+                    {
+                      "category": "Entertainment: Film",
+                      "correct_answer": "Vangelis",
+                      "difficulty": "medium",
+                      "incorrect_answers": [
+                        "Kitaro",
+                        "Yanni",
+                        "Enya"
+                      ],
+                      "question": "Who did the score to the original Blade Runner?",
+                      "type": "multiple"
+                    }
+                  ]
+                },
+                "schema": {
+                  "properties": {
+                    "response_code": {
+                      "description": "Response code indicating the status of the request (0 = Success, 1 = No Results, 2 = Invalid Parameter, 3 = Token Not Found, 4 = Token Empty)",
+                      "enum": [
+                        0,
+                        1,
+                        2,
+                        3,
+                        4
+                      ],
+                      "type": "integer"
+                    },
+                    "results": {
+                      "items": {
+                        "properties": {
+                          "category": {
+                            "description": "The category of the question",
+                            "type": "string"
+                          },
+                          "correct_answer": {
+                            "description": "The correct answer to the question",
+                            "type": "string"
+                          },
+                          "difficulty": {
+                            "description": "The difficulty level of the question",
+                            "enum": [
+                              "easy",
+                              "medium",
+                              "hard"
+                            ],
+                            "type": "string"
+                          },
+                          "incorrect_answers": {
+                            "description": "Array of incorrect answers",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "question": {
+                            "description": "The question text (may contain HTML entities)",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The type of question",
+                            "enum": [
+                              "multiple",
+                              "boolean"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "difficulty",
+                          "category",
+                          "question",
+                          "correct_answer",
+                          "incorrect_answers"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "response_code",
+                    "results"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with trivia questions"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
