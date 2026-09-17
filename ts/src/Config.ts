@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      api: {
-      },
-
-      api_category: {
-      },
-
+        api: {
+        },
+  
+        api_category: {
+        },
+  
     }
   }
 

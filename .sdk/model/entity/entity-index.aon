@@ -1,4 +1,4 @@
 # Entity Models
 
-@"api.aon"
-@"api_category.aon"
+@"./api.aon"
+@"./api_category.aon"

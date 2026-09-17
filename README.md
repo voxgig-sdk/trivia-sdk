@@ -105,12 +105,12 @@ local results, err = client:Api():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/trivia-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
-| Python | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
-| PHP | `voxgig-sdk/trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
+| TypeScript | `@voxgig-sdk/trivia-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/tags) |
+| Python | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/tags) |
+| PHP | `voxgig-sdk/trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/trivia-sdk/go` | `go get github.com/voxgig-sdk/trivia-sdk/go@latest` |
-| Ruby | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
-| Lua | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/releases) |
+| Ruby | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/tags) |
+| Lua | `voxgig-sdk-trivia` | publish pending — [install from git tag](https://github.com/voxgig-sdk/trivia-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/trivia-sdk/go-cli` | `go install github.com/voxgig-sdk/trivia-sdk/go-cli/cmd/trivia@latest` |
 | Go MCP server | `github.com/voxgig-sdk/trivia-sdk/go-mcp` | `go get github.com/voxgig-sdk/trivia-sdk/go-mcp@latest` |
 
